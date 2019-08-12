@@ -19,12 +19,12 @@ export default class SpotifyController {
    * @memberof SpotifyController
    */
   static async token(req: Request, res: Response): Promise<void> {
-    const bodyTokenReq: BodyTokenReceived = req.body;
+    const code: string = req.body.code;
 
     try {
-      const spotiRes = await SpotifyService.getToken(bodyTokenReq);
+      const spotiRes = await SpotifyService.getToken(code);
       
-      console.log(spotiRes);
+      console.log(spotiRes.data);
     } catch (error) {
       console.log(error);
     }
