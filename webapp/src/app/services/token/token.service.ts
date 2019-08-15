@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SCOPES } from '@constants/index';
-import { BodyTokenRequest } from '@app/models';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -28,14 +27,9 @@ export class TokenService {
 
   async getToken(code: string): Promise<void> {
     const url = `http://localhost:8080/token`;
-    const basic: string = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
-    const body: BodyTokenRequest = {
-      code,
-      auth: `Basic ${basic}`
-    };
 
     try {
-      const res = await this.http.post(url, body).toPromise();
+      const res = await this.http.post(url, { code }).toPromise();
 
       console.log(res);
     } catch (error) {
