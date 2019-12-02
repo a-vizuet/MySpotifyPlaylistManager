@@ -21,16 +21,22 @@ export class AppComponent {
     );
   }
 
-  private handleRoutes(snapshot: ActivatedRouteSnapshot) {
+  private async handleRoutes(snapshot: ActivatedRouteSnapshot): Promise<void> {
     // Si url es 0 es porque entró a la ruta base '/'
     const isBasePath = snapshot.url.length === 0;
 
     if (!isBasePath) {
       const code = snapshot.queryParamMap.get('code');
-      this.tokenS.getToken(code);
+      console.log(code);
+      await this.tokenS.getToken(code);
+      this.router.navigate(['playlists']);
     } else {
-      this.tokenS.login();
+      if (this.tokenS.gToken === undefined) {
+        this.tokenS.login();
+      }
     }
   }
+
+
 
 }

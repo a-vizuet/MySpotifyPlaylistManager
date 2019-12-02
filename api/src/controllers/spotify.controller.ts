@@ -24,7 +24,7 @@ export default class SpotifyController {
     try {
       const spotiRes = await SpotifyService.getToken(code);
       
-      console.log(spotiRes.data);
+      res.status(200).send(spotiRes.data);
     } catch (error) {
       console.log(error);
     }

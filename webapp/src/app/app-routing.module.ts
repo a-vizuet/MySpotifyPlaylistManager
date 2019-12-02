@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { PlaylistsComponent } from './components/playlists/playlists.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: 'callback',
     component: AppComponent
+  },
+  {
+    path: 'playlists',
+    component: PlaylistsComponent
   },
   {
     path: '**',

@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaylistsComponent } from './components/playlists/playlists.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,
